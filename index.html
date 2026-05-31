@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentic Work Execution Challenge 2026 | FIT2026</title>
+  <meta name="description" content="AIエージェントによる動画制作チャレンジ。AIエージェントは仕事をどこまで自律実行できるのかを問うFIT2026 A-2イベント企画です。" />
+  <meta property="og:title" content="Agentic Work Execution Challenge 2026" />
+  <meta property="og:description" content="AIエージェントによる動画制作チャレンジ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/multi-agent-video-banner.png" />
+  <style>
+    :root {
+      --ink: #172033;
+      --ink-soft: #536078;
+      --paper: #f7f9ff;
+      --white: #ffffff;
+      --line: rgba(23,32,51,.12);
+      --blue: #4fb3ff;
+      --violet: #8b7cf6;
+      --cyan: #67d7e8;
+      --soft-blue: #eef7ff;
+      --soft-violet: #f3f0ff;
+      --dark: #111827;
+      --shadow: 0 18px 48px rgba(22, 32, 55, .10);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+      color: var(--ink);
+    }
+
+    .nav {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: .01em;
+      white-space: nowrap;
+    }
+
+    .brandmark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--cyan), var(--violet));
+      box-shadow: 0 10px 24px rgba(79,179,255,.22);
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--ink-soft);
+      font-size: 14px;
+      letter-spacing: .06em;
+      font-weight: 700;
+    }
+
+    .links a:hover { color: var(--ink); }
+
+    .hero {
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,.96) 0%, rgba(15,23,42,.84) 45%, rgba(15,23,42,.55) 100%),
+        radial-gradient(circle at 20% 12%, rgba(103,215,232,.22), transparent 34%),
+        radial-gradient(circle at 80% 0%, rgba(139,124,246,.26), transparent 35%),
+        #111827;
+      padding: 64px 0 74px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 42px;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      padding: 8px 14px;
+      color: #e5efff;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 16px var(--cyan);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 4.8vw, 62px);
+      line-height: 1.06;
+      letter-spacing: -.045em;
+      text-shadow: 0 10px 34px rgba(0,0,0,.38);
+    }
+
+    .grad {
+      background: linear-gradient(135deg, #fff 0%, #c4f5ff 45%, #d7d0ff 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin: 22px 0 0;
+      font-size: clamp(20px, 2.35vw, 30px);
+      line-height: 1.35;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .lead {
+      margin: 22px 0 0;
+      color: #d9e4f6;
+      font-size: clamp(16px, 1.5vw, 19px);
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 14px;
+      margin-top: 32px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(10px);
+      transition: .18s ease;
+      color: #fff;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.18);
+    }
+
+    .btn.primary {
+      border: 0;
+      color: #102033;
+      background: linear-gradient(135deg, #77dfff, #b8a7ff);
+      box-shadow: 0 14px 34px rgba(103,215,232,.24);
+    }
+
+    .hero-image {
+      margin-top: 66px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 24px 60px rgba(0,0,0,.30);
+    }
+
+    .hero-image img {
+      width: 100%;
+      display: block;
+    }
+
+    .section {
+      padding: 84px 0;
+      background: var(--paper);
+    }
+
+    .section.white {
+      background: var(--white);
+    }
+
+    .section.dark {
+      background: linear-gradient(180deg, #fbfcff, #f1f6ff);
+      color: var(--ink);
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 38px;
+    }
+
+    .kicker {
+      color: #4f7cff;
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .dark .kicker { color: #4f7cff; }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 50px);
+      line-height: 1.16;
+      letter-spacing: -.04em;
+      color: var(--ink);
+    }
+
+    .section-head p {
+      margin: 18px 0 0;
+      font-size: 18px;
+      color: var(--ink-soft);
+    }
+
+    .dark .section-head p { color: var(--ink-soft); }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .dark .card {
+      background: #fff;
+      border-color: var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 23px;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--ink-soft);
+    }
+
+    .dark .card p { color: var(--ink-soft); }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--soft-blue), var(--soft-violet));
+      color: #4f46e5;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .workflow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .step {
+      border: 1px solid var(--line);
+      background: white;
+      border-radius: 24px;
+      padding: 22px 18px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      color: #fff;
+      background: linear-gradient(135deg, #63c7f2, #9d8cff);
+    }
+
+    .step b { display: block; margin-bottom: 4px; }
+    .step span { color: var(--ink-soft); font-size: 14px; }
+
+    .sponsor-box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 24px;
+      align-items: center;
+      border: 1px solid rgba(79,124,255,.18);
+      background: #fff;
+      border-radius: 34px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .sponsor-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .sponsor-list div {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, var(--soft-blue), var(--soft-violet));
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .sponsor-box p[style] {
+      color: var(--ink-soft) !important;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: #fff;
+      padding: 38px 0;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .foot {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    @media (max-width: 1100px) {
+      h1 { font-size: clamp(34px, 5vw, 56px); }
+      .hero-subtitle { font-size: clamp(19px, 2.6vw, 27px); }
+      .hero-image { margin-top: 72px; }
+    }
+
+    @media (max-width: 920px) {
+      .links { display: none; }
+
+      .hero-inner, .grid-3, .grid-2, .workflow, .sponsor-box {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        padding: 44px 0 64px;
+      }
+
+      .hero-image {
+        margin-top: 18px;
+      }
+
+      h1 {
+        font-size: clamp(32px, 7vw, 48px);
+        letter-spacing: -0.04em;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(18px, 4vw, 24px);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .actions .btn { width: 100%; }
+
+      h1 {
+        font-size: clamp(30px, 9vw, 40px);
+        line-height: 1.08;
+      }
+
+      .hero-subtitle { font-size: 18px; }
+      .lead { font-size: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#top">
+        <span class="brandmark"></span>
+        <span>AWE Challenge 2026</span>
+      </a>
+      <div class="links">
+        <a href="#about">ABOUT</a>
+        <a href="#workflow">WORKFLOW</a>
+        <a href="#tracks">TRACKS</a>
+        <a href="#venue">VENUE</a>
+        <a href="#sponsors">SPONSORS</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="badge"><span class="dot"></span> FIT2026 A-2 Event Project</div>
+          <h1><span class="grad">Agentic Work</span><br>Execution Challenge 2026</h1>
+          <p class="hero-subtitle">AIエージェントによる動画制作チャレンジ</p>
+          <p class="lead">
+            AIエージェントは「仕事」をどこまで自律実行できるのか。
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="#sponsors">スポンサー募集を見る</a>
+            <a class="btn" href="#tracks">コンテスト部門を見る</a>
+            <a class="btn" href="#venue">会場情報を見る</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="assets/multi-agent-video-banner.png" alt="マルチエージェントによるAI動画制作コンテストのバナー">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section white">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">About</div>
+          <h2>Web・動画制作を題材に、AIエージェントの「仕事実行」を可視化する。</h2>
+          <p>
+            本イベントは、複数のAIエージェントが企画、脚本、映像、音声、編集、Web構成などの役割を分担し、成果物を生成する過程を競うコンテスト型イベントです。
+          </p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <span class="tag">Agentic AI</span>
+            <h3>自律的な仕事実行</h3>
+            <p>AIエージェントが与えられた目標に対して、企画、素材生成、編集、改善までをどこまで進められるかを検証します。</p>
+          </article>
+          <article class="card">
+            <span class="tag">Multi-Agent</span>
+            <h3>役割分担と協調</h3>
+            <p>Director、Script、Visual、Narration、Editing などの役割を分担し、複数エージェントの協調プロセスを扱います。</p>
+          </article>
+          <article class="card">
+            <span class="tag">Creation</span>
+            <h3>成果物で伝える</h3>
+            <p>動画やWebページを成果物とすることで、研究者だけでなく、学生、企業、一般参加者にも伝わる形で評価します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Multi-Agent Workflow</div>
+          <h2>AIエージェントが、企画から完成までを分担する。</h2>
+          <p>
+            成果物の完成度だけでなく、エージェント同士の分担、調整、改善、統合のプロセスも重要な評価対象になります。
+          </p>
+        </div>
+        <div class="workflow">
+          <div class="step"><div class="icon">💡</div><b>企画</b><span>目的・対象・構成</span></div>
+          <div class="step"><div class="icon">📄</div><b>脚本・設計</b><span>台本・ページ設計</span></div>
+          <div class="step"><div class="icon">🖼️</div><b>素材生成</b><span>画像・映像・文章</span></div>
+          <div class="step"><div class="icon">🎙️</div><b>音声・演出</b><span>ナレーション・BGM</span></div>
+          <div class="step"><div class="icon">🎬</div><b>統合</b><span>編集・Web化・出力</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracks" class="section white">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Competition Tracks</div>
+          <h2>2つのコンテスト部門を実施予定。</h2>
+          <p>
+            自由な動画作品を募集する部門と、会場側で統一されたAI動画生成環境を利用する部門の2種類を予定しています。
+          </p>
+        </div>
+        <div class="grid-2">
+          <article class="card">
+            <span class="tag">Track 1</span>
+            <h3>Open Creative Track</h3>
+            <p>
+              どのようなツール・モデル・制作環境を利用してもよく、自由な発想による動画作品を募集する部門です。商用API、独自システム、ローカルモデル等を含め、制作手法は問いません。完成した動画作品そのものを中心に評価します。
+            </p>
+          </article>
+          <article class="card">
+            <span class="tag">Track 2</span>
+            <h3>Standardized Agent Orchestration Track</h3>
+            <p>
+              会場側で用意されたGPU・生成モデル・動画制作基盤を利用し、定められたAgent構成およびオーケストレーションルールのもとで動画制作を行う部門です。利用可能なモデル、計算資源、制作パイプラインを統一し、マルチエージェント協調やワークフロー設計能力を評価します。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="venue" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Event Info</div>
+          <h2>開催情報</h2>
+          <p>FIT2026会場内で実施予定です。詳細は今後更新します。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>開催日時</h3>
+            <p>2026年9月予定</p>
+          </article>
+          <article class="card">
+            <h3>会場</h3>
+            <p>北九州市立大学N棟<br>大講義室N133</p>
+          </article>
+          <article class="card">
+            <h3>定員</h3>
+            <p>300名</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="sponsors" class="section dark">
+      <div class="wrap">
+        <div class="sponsor-box">
+          <div>
+            <div class="kicker">Sponsors Wanted</div>
+            <h2>協賛企業・団体を募集しています。</h2>
+            <p style="color:var(--muted);font-size:18px;">
+              生成AI、AIエージェント、映像制作、クラウド・GPU、教育、地域発信に関心を持つ企業・団体との連携を想定しています。
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="mailto:okuhara@mie-u.ac.jp?subject=AWE%20Challenge%202026%20Sponsorship%20Inquiry">協賛について問い合わせる</a>
+            </div>
+          </div>
+          <div class="sponsor-list">
+            <div>企業ロゴ掲載</div>
+            <div>スポンサー賞の設定</div>
+            <div>学生・研究者との接点</div>
+            <div>生成AI・Agentic AI領域でのブランド露出</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section white">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Contact</div>
+          <h2>お問い合わせ</h2>
+          <p>参加、協賛、共同運営、取材等に関するお問い合わせは、下記までご連絡ください。</p>
+        </div>
+        <div class="grid-3">
+          <article class="card">
+            <h3>Organizer</h3>
+            <p>FIT2026 Agentic Work Execution Organizing Committee</p>
+          </article>
+          <article class="card">
+            <h3>Contact Person</h3>
+            <p>Shun Okuhara, Mie University</p>
+          </article>
+          <article class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:okuhara@mie-u.ac.jp">okuhara@mie-u.ac.jp</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot">
+      <div>© 2026 FIT2026 AWE Organizing Committee</div>
+      <div>Agentic Work Execution Challenge 2026</div>
+    </div>
+  </footer>
+</body>
+</html>
