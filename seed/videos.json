@@ -1,0 +1,962 @@
+[
+ {
+  "id": "v001",
+  "student_id": "425846",
+  "student_name": "斉藤里玖",
+  "url": "https://drive.google.com/file/d/1HNZwuH1OvLcr56hW73Pqyf-JIgdjVFIV/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1HNZwuH1OvLcr56hW73Pqyf-JIgdjVFIV/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v002",
+  "student_id": "426801",
+  "student_name": "淺野聡太",
+  "url": "https://drive.google.com/file/d/18YwMxeAFK_hGd52naAlLEM9JlZfFC0QR/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/18YwMxeAFK_hGd52naAlLEM9JlZfFC0QR/preview",
+  "award": "環境賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v003",
+  "student_id": "426802",
+  "student_name": "安部天晴",
+  "url": "https://pollo.ai/ja/v/cms8y27zj04urmi2fmx35x55a?source=share",
+  "embed_url": "",
+  "award": "",
+  "url_status": "生成ツールの共有リンク(要確認)",
+  "active": 0
+ },
+ {
+  "id": "v004",
+  "student_id": "426803",
+  "student_name": "荒川潔人",
+  "url": "https://chatgpt.com/backend-api/estuary/content?id=file_0000000063dc720692abec513f199f25&ts=495578&p=fs&cid=1&sig=dacf40eb03330daaa769c9466b0eb31e104614a5ae5a23323a366297a3b427d0&v=0",
+  "embed_url": "",
+  "award": "",
+  "url_status": "生成ツールの共有リンク(要確認)",
+  "active": 0
+ },
+ {
+  "id": "v005",
+  "student_id": "426804",
+  "student_name": "阿波奏斗",
+  "url": "https://drive.google.com/file/d/1W04q7ixBfxJHkanpm5iLEXpXKzxPgB8S/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1W04q7ixBfxJHkanpm5iLEXpXKzxPgB8S/preview",
+  "award": "環境賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v006",
+  "student_id": "426805",
+  "student_name": "石原悠敏",
+  "url": "https://drive.google.com/file/d/1tgkThcvlqEx6ODDWINtKeid9KROneuq1/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1tgkThcvlqEx6ODDWINtKeid9KROneuq1/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v007",
+  "student_id": "426806",
+  "student_name": "伊藤壮良",
+  "url": "https://drive.google.com/drive/my-drive",
+  "embed_url": "",
+  "award": "",
+  "url_status": "Driveの自分の画面(無効)",
+  "active": 0
+ },
+ {
+  "id": "v008",
+  "student_id": "426807",
+  "student_name": "伊藤ゆい",
+  "url": "https://drive.google.com/file/d/1gk6O-MVAqLg9Xs40K0qDPrhmLW_1S-oP/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1gk6O-MVAqLg9Xs40K0qDPrhmLW_1S-oP/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v009",
+  "student_id": "426808",
+  "student_name": "伊藤惟人",
+  "url": "https://drive.google.com/file/d/16zKONZn-td3kUM_7QUd6NV_hOD3fBzgs/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/16zKONZn-td3kUM_7QUd6NV_hOD3fBzgs/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v010",
+  "student_id": "426809",
+  "student_name": "犬飼彩太",
+  "url": "https://drive.google.com/file/d/16eG9xBNAxsE_p-N7HrxBkKVwCChcQaGN/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/16eG9xBNAxsE_p-N7HrxBkKVwCChcQaGN/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v011",
+  "student_id": "426810",
+  "student_name": "今村有翔",
+  "url": "https://drive.google.com/file/d/1OZnKxCxTnU1dswvd_nWRPlOqdnWYroSE/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1OZnKxCxTnU1dswvd_nWRPlOqdnWYroSE/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v012",
+  "student_id": "426811",
+  "student_name": "岩野結衣",
+  "url": "https://drive.google.com/file/d/1yvG7l4hdMVTv-L6jTUYrf9pFXxLq_rMA/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1yvG7l4hdMVTv-L6jTUYrf9pFXxLq_rMA/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v013",
+  "student_id": "426812",
+  "student_name": "上野智和",
+  "url": "https://drive.google.com/file/d/1m1AKbTMtC5yW8_-JdB7pibSnbOKdxa0H/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1m1AKbTMtC5yW8_-JdB7pibSnbOKdxa0H/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v014",
+  "student_id": "426814",
+  "student_name": "太田和志",
+  "url": "https://1drv.ms/v/c/509369256270769f/IQD7BPV-0-X6SabOhpM-wAf9ARIkZK1nmI68wHMarhvPhys?e=q6YLNo",
+  "embed_url": "",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v015",
+  "student_id": "426815",
+  "student_name": "太田遥",
+  "url": "https://drive.google.com/file/d/1dKhvElOnf9_BdYIYQ612xTRKg7PBGXBV/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1dKhvElOnf9_BdYIYQ612xTRKg7PBGXBV/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v016",
+  "student_id": "426816",
+  "student_name": "太田凛",
+  "url": "https://drive.google.com/file/d/1a5qtxOxPJLLV1ItF1_F_nWlxMeH0Ez1c/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1a5qtxOxPJLLV1ItF1_F_nWlxMeH0Ez1c/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v017",
+  "student_id": "426818",
+  "student_name": "落合憲信",
+  "url": "https://drive.google.com/file/d/1H6nb9XwfGhMBkJhlWS1QZzFiAAWLqlR5/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1H6nb9XwfGhMBkJhlWS1QZzFiAAWLqlR5/preview",
+  "award": "DX賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v018",
+  "student_id": "426819",
+  "student_name": "海津雄飛",
+  "url": "https://drive.google.com/file/d/12PUhsWe8e3M72yVNF-HqCThoZmdTkD2v/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/12PUhsWe8e3M72yVNF-HqCThoZmdTkD2v/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v019",
+  "student_id": "426820",
+  "student_name": "鏡味頼生",
+  "url": "https://drive.google.com/file/d/1liNDPmizR4PYWfXvjg6CmENIBE7O59ff/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1liNDPmizR4PYWfXvjg6CmENIBE7O59ff/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v020",
+  "student_id": "426821",
+  "student_name": "角田拓真",
+  "url": "https://drive.google.com/file/d/1UpZ1vsLWvND0d84S9hGJCgEdsjAJAlox/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1UpZ1vsLWvND0d84S9hGJCgEdsjAJAlox/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v021",
+  "student_id": "426822",
+  "student_name": "加古夢輝",
+  "url": "https://drive.google.com/file/d/17PN1yZZmEk08fTBNeLPTYppjBlFa6dwh/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/17PN1yZZmEk08fTBNeLPTYppjBlFa6dwh/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v022",
+  "student_id": "426823",
+  "student_name": "片岡幸優",
+  "url": "https://drive.google.com/file/d/1xLAvut0yKfAUBS5O9jl-xt2zCnFtpUXk/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1xLAvut0yKfAUBS5O9jl-xt2zCnFtpUXk/preview",
+  "award": "環境賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v023",
+  "student_id": "426824",
+  "student_name": "加地海登",
+  "url": "https://drive.google.com/file/d/1rvcx4bJQxE7SIdLE4iWOFTQ_GAu47ebg/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1rvcx4bJQxE7SIdLE4iWOFTQ_GAu47ebg/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v024",
+  "student_id": "426825",
+  "student_name": "加藤楓磨",
+  "url": "https://drive.google.com/file/d/16mMVxE2EtaO8yNHwk2KdyOLrvoFmaYZV/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/16mMVxE2EtaO8yNHwk2KdyOLrvoFmaYZV/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v025",
+  "student_id": "426826",
+  "student_name": "加藤実希",
+  "url": "https://drive.google.com/file/d/1_zHxQ5lv8XUi7NE5-F_foK2jBv1N0lrB/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1_zHxQ5lv8XUi7NE5-F_foK2jBv1N0lrB/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v026",
+  "student_id": "426827",
+  "student_name": "加納乙葉",
+  "url": "https://drive.google.com/file/d/1G1xXAlD5EwYrCjuOWShRYXct4I1Waksc/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1G1xXAlD5EwYrCjuOWShRYXct4I1Waksc/preview",
+  "award": "環境賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v027",
+  "student_id": "426828",
+  "student_name": "加畠心響",
+  "url": "https://drive.google.com/file/d/1SZrrAfFSNDBnFnU-DVMBmstJQ9crIdDi/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1SZrrAfFSNDBnFnU-DVMBmstJQ9crIdDi/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v028",
+  "student_id": "426829",
+  "student_name": "神谷雄",
+  "url": "https://drive.google.com/file/d/1wXc0jymnAiqRlNLr_YLLD3vYGneNtLYk/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1wXc0jymnAiqRlNLr_YLLD3vYGneNtLYk/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v029",
+  "student_id": "426830",
+  "student_name": "川﨑瑛",
+  "url": "https://drive.google.com/file/d/1ZljpM0W3W5KWNekFT0E1QxphFZAU5NDZ/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1ZljpM0W3W5KWNekFT0E1QxphFZAU5NDZ/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v030",
+  "student_id": "426831",
+  "student_name": "川端純",
+  "url": "https://drive.google.com/file/d/1TZo9X8dZi5dqbHpKeiht9DgXuR1Mzh0v/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1TZo9X8dZi5dqbHpKeiht9DgXuR1Mzh0v/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v031",
+  "student_id": "426832",
+  "student_name": "北西康人",
+  "url": "https://drive.google.com/file/d/1AzvQMsubpARnxknmYs8whuunG_GeF8En/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1AzvQMsubpARnxknmYs8whuunG_GeF8En/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v032",
+  "student_id": "426833",
+  "student_name": "木原遥都",
+  "url": "https://drive.google.com/file/d/1J5yHNNw5jmYNg3P47r6LfyhLoPlDRZeB/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1J5yHNNw5jmYNg3P47r6LfyhLoPlDRZeB/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v033",
+  "student_id": "426834",
+  "student_name": "桐山湊",
+  "url": "https://drive.google.com/file/d/1ndIYEApPhYINKqzcCuACalv441QBZRCD/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1ndIYEApPhYINKqzcCuACalv441QBZRCD/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v034",
+  "student_id": "426835",
+  "student_name": "久保塁暉",
+  "url": "https://drive.google.com/file/d/1tq8GAVtJMrLe1oUAvxwLJBhFLPhQ0JuA/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1tq8GAVtJMrLe1oUAvxwLJBhFLPhQ0JuA/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v035",
+  "student_id": "426836",
+  "student_name": "栗田庵莉",
+  "url": "https://drive.google.com/file/d/11NCSvY08rGZY5DBRS1ZGQhmvU5Kp6h-2/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/11NCSvY08rGZY5DBRS1ZGQhmvU5Kp6h-2/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v036",
+  "student_id": "426838",
+  "student_name": "合田悠人",
+  "url": "https://drive.google.com/file/d/1mjMvzf7bi0S8R-L9gXCHEfVzf0eQnbww/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1mjMvzf7bi0S8R-L9gXCHEfVzf0eQnbww/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v037",
+  "student_id": "426839",
+  "student_name": "小島志樹",
+  "url": "file:///C:/Users/%E5%A4%A7%E5%B3%B6/Downloads/v2_awv-93d18bd70bb39be9.mp4",
+  "embed_url": "",
+  "award": "",
+  "url_status": "ローカルパス",
+  "active": 0
+ },
+ {
+  "id": "v038",
+  "student_id": "426840",
+  "student_name": "児玉瑛己",
+  "url": "https://drive.google.com/file/d/1oUTRv_6XtVxSa_Yy2aFDLgRhbzFArDYY/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1oUTRv_6XtVxSa_Yy2aFDLgRhbzFArDYY/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v039",
+  "student_id": "426841",
+  "student_name": "小林愛季",
+  "url": "https://vimeo.com/1210113904?share=copy&fl=sv&fe=ci",
+  "embed_url": "https://player.vimeo.com/video/1210113904",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v040",
+  "student_id": "426842",
+  "student_name": "小林龍征",
+  "url": "https://drive.google.com/file/d/1OZPgU9JX62OlYPOQMWwGpM41UitdaEHh/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1OZPgU9JX62OlYPOQMWwGpM41UitdaEHh/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v041",
+  "student_id": "426843",
+  "student_name": "沢田翔太郎",
+  "url": "https://drive.google.com/file/d/1AqWDMZ6gHejaxmUBPaqI5Cm7ILMBxZRo/view",
+  "embed_url": "https://drive.google.com/file/d/1AqWDMZ6gHejaxmUBPaqI5Cm7ILMBxZRo/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v042",
+  "student_id": "426844",
+  "student_name": "澤田遼太",
+  "url": "https://drive.google.com/drive/u/0/home?hl=ja",
+  "embed_url": "",
+  "award": "",
+  "url_status": "Driveの自分の画面(無効)",
+  "active": 0
+ },
+ {
+  "id": "v043",
+  "student_id": "426845",
+  "student_name": "三歩一賢太",
+  "url": "https://gemini.google.com/share/d/1T55BE8Mx4wxDEGpsKjpc_BvWDw0cowl9?usp=sharing",
+  "embed_url": "",
+  "award": "",
+  "url_status": "生成ツールの共有リンク(要確認)",
+  "active": 0
+ },
+ {
+  "id": "v044",
+  "student_id": "426846",
+  "student_name": "下鳥翔",
+  "url": "https://drive.google.com/file/d/1_0C9P5WTfs4-oDcr4VYom2jk7iSXiZwO/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1_0C9P5WTfs4-oDcr4VYom2jk7iSXiZwO/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v045",
+  "student_id": "426847",
+  "student_name": "白井颯真",
+  "url": "https://drive.google.com/file/d/1QcLoDLd8PwQj_6eMR88kAhQ5vPUOagqi/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1QcLoDLd8PwQj_6eMR88kAhQ5vPUOagqi/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v046",
+  "student_id": "426848",
+  "student_name": "新海美桜",
+  "url": "https://1drv.ms/v/c/CD3F39CD42404A72/IQAJTck3mCXmToLkmMdgN3eoAfplDOAcxwZQWaCt-MWdkc0?e=9yM59l",
+  "embed_url": "",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v047",
+  "student_id": "426849",
+  "student_name": "菅原颯太",
+  "url": "https://chatgpt.com/backend-api/estuary/content?id=file_00000000550881fb940e76823d354df3&fn=connected_smooth.mp4&cd=attachment&ts=495889&p=fs&cid=1&sig=b68fd5b5b40ee3f35044edf275cae7ccd8d4ca0453583e3cdaf4277821741bda&v=0",
+  "embed_url": "",
+  "award": "観光賞",
+  "url_status": "生成ツールの共有リンク(要確認)",
+  "active": 0
+ },
+ {
+  "id": "v048",
+  "student_id": "426850",
+  "student_name": "杉浦友悟",
+  "url": "https://drive.google.com/file/d/1yy7jOKai-fLCTMmjZ26WBo4OYQoOzuDv/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1yy7jOKai-fLCTMmjZ26WBo4OYQoOzuDv/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v049",
+  "student_id": "426851",
+  "student_name": "鈴木優太",
+  "url": "https://drive.google.com/file/d/1CuzvXeoaLqRcMkxnRfYeakW6KmTvxfGp/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1CuzvXeoaLqRcMkxnRfYeakW6KmTvxfGp/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v050",
+  "student_id": "426852",
+  "student_name": "台幸晃",
+  "url": "https://drive.google.com/file/d/1zeVX4A37wjd0ATIWZT7X_-1WwarYSzkR/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1zeVX4A37wjd0ATIWZT7X_-1WwarYSzkR/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v051",
+  "student_id": "426854",
+  "student_name": "髙橋雅紀",
+  "url": "https://drive.google.com/file/d/1UhstK_ED4iNCvFra23GAV0fjr9sugmjw/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1UhstK_ED4iNCvFra23GAV0fjr9sugmjw/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v052",
+  "student_id": "426855",
+  "student_name": "竹内悠稀",
+  "url": "https://youtu.be/jVgqYy0EB34",
+  "embed_url": "https://www.youtube.com/embed/jVgqYy0EB34",
+  "award": "",
+  "url_status": "YouTube",
+  "active": 1
+ },
+ {
+  "id": "v053",
+  "student_id": "426856",
+  "student_name": "棚橋煌太",
+  "url": "https://drive.google.com/file/d/1xRk0srly5VvRz-m4jqH7PuVlTnAYB3by/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1xRk0srly5VvRz-m4jqH7PuVlTnAYB3by/preview",
+  "award": "環境賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v054",
+  "student_id": "426857",
+  "student_name": "玉田朝靖",
+  "url": "https://drive.google.com/file/d/1nqEjmHELIWh6-iL_kajUqIm0DRX9cEEq/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1nqEjmHELIWh6-iL_kajUqIm0DRX9cEEq/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v055",
+  "student_id": "426858",
+  "student_name": "田村綾",
+  "url": "https://drive.google.com/file/d/14bMosi9KJ5-6kLoC-ioOWQRF9T4Z50wW/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/14bMosi9KJ5-6kLoC-ioOWQRF9T4Z50wW/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v056",
+  "student_id": "426860",
+  "student_name": "檀浦康惺",
+  "url": "https://drive.google.com/file/d/1ow1aU1JIbeES_dt4hFvnvbKiar5D3Rbx/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1ow1aU1JIbeES_dt4hFvnvbKiar5D3Rbx/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v057",
+  "student_id": "426861",
+  "student_name": "辻本輝樹",
+  "url": "https://youtu.be/Q2dbK9SYKwI",
+  "embed_url": "https://www.youtube.com/embed/Q2dbK9SYKwI",
+  "award": "",
+  "url_status": "YouTube",
+  "active": 1
+ },
+ {
+  "id": "v058",
+  "student_id": "426863",
+  "student_name": "豊田琉偉",
+  "url": "https://drive.google.com/drive/folders/1PtH1OEbtYIgj4K0ZSpYhi7tHU3RVL72n?usp=drive_link",
+  "embed_url": "",
+  "award": "夜景賞",
+  "url_status": "Driveフォルダ(要確認)",
+  "active": 1
+ },
+ {
+  "id": "v059",
+  "student_id": "426864",
+  "student_name": "中島秀太",
+  "url": "https://mieuniv-my.sharepoint.com/:v:/r/personal/426864_o_mie-u_ac_jp/Documents/%F0%9F%93%9D%E4%B8%89%E9%87%8D%E5%A4%A7%E5%AD%A6%20%E6%8E%88%E6%A5%AD%F0%9F%93%9D/%E3%83%87%E3%83%BC%E3%82%BF%E3%82%B5%E3%82%A4%E3%82%A8%E3%83%B3%E3%82%B91/20260722_155354000_iOS.MOV?csf=1&web=1&e=RCYjL8",
+  "embed_url": "",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v060",
+  "student_id": "426865",
+  "student_name": "中谷奏太",
+  "url": "https://drive.google.com/drive/folders/1vr4bch0dMFymPmwgpblyjjOuJlSQypr1?usp=drive_link",
+  "embed_url": "",
+  "award": "",
+  "url_status": "Driveフォルダ(要確認)",
+  "active": 1
+ },
+ {
+  "id": "v061",
+  "student_id": "426866",
+  "student_name": "中本慧",
+  "url": "https://drive.google.com/file/d/1DdIRSlZkZuC9E5tGobdp53JZEtJEX4lD/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1DdIRSlZkZuC9E5tGobdp53JZEtJEX4lD/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v062",
+  "student_id": "426867",
+  "student_name": "長山蒼生",
+  "url": "https://76.gigafile.nu/0803-c9828748479265ed28d619c408f0f8357",
+  "embed_url": "",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v063",
+  "student_id": "426868",
+  "student_name": "野田綾那",
+  "url": "https://drive.google.com/file/d/1ZYMfXr45o8JFLooHX2K-Ky6ngFrLbkWk/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1ZYMfXr45o8JFLooHX2K-Ky6ngFrLbkWk/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v064",
+  "student_id": "426870",
+  "student_name": "服部蓮音",
+  "url": "https://firefly.adobe.com/open/urn:aaid:sc:AP:b5b9c0e6-2808-4bfe-b853-5a74492dbfdd",
+  "embed_url": "",
+  "award": "",
+  "url_status": "生成ツールの共有リンク(要確認)",
+  "active": 0
+ },
+ {
+  "id": "v065",
+  "student_id": "426871",
+  "student_name": "馬場悠冬",
+  "url": "https://drive.google.com/file/d/1X1l-qr-PdLR8EwfvipM6W3isENVGxZkZ/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1X1l-qr-PdLR8EwfvipM6W3isENVGxZkZ/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v066",
+  "student_id": "426872",
+  "student_name": "濱口奏美",
+  "url": "https://drive.google.com/file/d/1CR2XPCi563Swuo8xutU14X8KZID3hgVp/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1CR2XPCi563Swuo8xutU14X8KZID3hgVp/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v067",
+  "student_id": "426873",
+  "student_name": "半場大雅",
+  "url": "https://drive.google.com/file/d/1IoW0S7tP9Slj0Cq9-Iys8NmM5LOMH5Vy/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1IoW0S7tP9Slj0Cq9-Iys8NmM5LOMH5Vy/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v068",
+  "student_id": "426874",
+  "student_name": "福原蒼大",
+  "url": "https://drive.google.com/file/d/1cIVw0MA_e5m1tLjWwq1RzXrpvmLUF7lz/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1cIVw0MA_e5m1tLjWwq1RzXrpvmLUF7lz/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v069",
+  "student_id": "426875",
+  "student_name": "二川恩行",
+  "url": "https://drive.google.com/file/d/19ktM2GxuDbSHYvLEddvECuOdllclPtFc/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/19ktM2GxuDbSHYvLEddvECuOdllclPtFc/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v070",
+  "student_id": "426876",
+  "student_name": "舟橋真之介",
+  "url": "https://drive.google.com/file/d/1gkozPPq_QWxJpU-ZEHHwOCvvDiYOo-Xf/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1gkozPPq_QWxJpU-ZEHHwOCvvDiYOo-Xf/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v071",
+  "student_id": "426877",
+  "student_name": "保田悠斗",
+  "url": "https://drive.google.com/file/d/1pZZlsuI8lwxGZ6Fc62F-jwu2MZ1ahOMo/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1pZZlsuI8lwxGZ6Fc62F-jwu2MZ1ahOMo/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v072",
+  "student_id": "426878",
+  "student_name": "前昌汰",
+  "url": "https://mieuniv-my.sharepoint.com/:v:/g/personal/426878_o_mie-u_ac_jp/IQDY2yvyIXq4QaulVH5rhnGrAVfzuWAoV-z_El9AOc4VAOQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rn6bTb",
+  "embed_url": "",
+  "award": "観光賞",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v073",
+  "student_id": "426879",
+  "student_name": "前川幹太",
+  "url": "https://drive.google.com/file/d/1mrdDNtVisB0bIypvK4foCjuwnBjvhujb/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1mrdDNtVisB0bIypvK4foCjuwnBjvhujb/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v074",
+  "student_id": "426880",
+  "student_name": "松井廉眞",
+  "url": "https://drive.google.com/file/d/1NA8rkWa8X-Qshu9MX-85yiNL3Eic5mGK/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1NA8rkWa8X-Qshu9MX-85yiNL3Eic5mGK/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v075",
+  "student_id": "426881",
+  "student_name": "松村直輝",
+  "url": "https://drive.google.com/file/d/15pcEr3tjkIwUfK2pdSv9IemZVcU7BQJ6/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/15pcEr3tjkIwUfK2pdSv9IemZVcU7BQJ6/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v076",
+  "student_id": "426882",
+  "student_name": "松本和志",
+  "url": "https://drive.google.com/file/d/1lpNmadI612BV9RyM3ePtIM3QFZcLML4Q/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1lpNmadI612BV9RyM3ePtIM3QFZcLML4Q/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v077",
+  "student_id": "426883",
+  "student_name": "柗本透海",
+  "url": "https://100.gigafile.nu/0727-c7338b18c988a9c5b6c24ba372705227a",
+  "embed_url": "",
+  "award": "",
+  "url_status": "外部共有サービス",
+  "active": 1
+ },
+ {
+  "id": "v078",
+  "student_id": "426884",
+  "student_name": "松本成樹",
+  "url": "https://drive.google.com/file/d/1zCr8fRJ59bwS55Lpy_yBSPPtLbyAPDAc/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1zCr8fRJ59bwS55Lpy_yBSPPtLbyAPDAc/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v079",
+  "student_id": "426886",
+  "student_name": "松本唯吾",
+  "url": "https://drive.google.com/file/d/1SiPfDKEWG6S_CCYyDuF4X4uLF1DeU4Ms/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1SiPfDKEWG6S_CCYyDuF4X4uLF1DeU4Ms/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v080",
+  "student_id": "426887",
+  "student_name": "水谷漣杜",
+  "url": "https://drive.google.com/file/d/1LwJo-dq4UML7z-vl6tky3250hWLPxeYJ/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1LwJo-dq4UML7z-vl6tky3250hWLPxeYJ/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v081",
+  "student_id": "426889",
+  "student_name": "水町律軌",
+  "url": "https://drive.google.com/file/d/1O6HehaYXlUK7obBWuzqevfZ6y1VMhbjU/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1O6HehaYXlUK7obBWuzqevfZ6y1VMhbjU/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v082",
+  "student_id": "426890",
+  "student_name": "宮下大雅",
+  "url": "https://drive.google.com/file/d/1tl5Y3pDfRKV4ULsOKWxxg2TiGDqNK-6U/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1tl5Y3pDfRKV4ULsOKWxxg2TiGDqNK-6U/preview",
+  "award": "夜景賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v083",
+  "student_id": "426891",
+  "student_name": "三輪裕己",
+  "url": "Video-1784084132721.mp4",
+  "embed_url": "",
+  "award": "",
+  "url_status": "URLでない",
+  "active": 0
+ },
+ {
+  "id": "v084",
+  "student_id": "426892",
+  "student_name": "森井晄",
+  "url": "https://drive.google.com/file/d/1ImlVgh-1jhVOTlKVZGsq5iec1TeDA2su/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1ImlVgh-1jhVOTlKVZGsq5iec1TeDA2su/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v085",
+  "student_id": "426894",
+  "student_name": "安井拓夢",
+  "url": "https://drive.google.com/file/d/172IE46Nven6ItGCOP5goRscVMq-1Sxpf/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/172IE46Nven6ItGCOP5goRscVMq-1Sxpf/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v086",
+  "student_id": "426896",
+  "student_name": "矢波遥斗",
+  "url": "https://drive.google.com/file/d/1SUkJMwySBP6BnxwurV5Ys0btVA9A-O19/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1SUkJMwySBP6BnxwurV5Ys0btVA9A-O19/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v087",
+  "student_id": "426897",
+  "student_name": "山口心菜",
+  "url": "https://drive.google.com/open?id=1nua7EPYh5i6cC8bNU7shruNHfoFAvOnp&usp=drive_fs",
+  "embed_url": "https://drive.google.com/file/d/1nua7EPYh5i6cC8bNU7shruNHfoFAvOnp/preview",
+  "award": "",
+  "url_status": "Driveファイル(open形式)",
+  "active": 1
+ },
+ {
+  "id": "v088",
+  "student_id": "426898",
+  "student_name": "山口純弥",
+  "url": "https://drive.google.com/file/d/1fLQW9jyCkDV-QEZkE_rLpAnoxEpJCYhy/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1fLQW9jyCkDV-QEZkE_rLpAnoxEpJCYhy/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v089",
+  "student_id": "426899",
+  "student_name": "山下遥也",
+  "url": "https://drive.google.com/file/d/1L_yzWpMjmLLXsc57pqi9BKrUGFbqIMCX/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1L_yzWpMjmLLXsc57pqi9BKrUGFbqIMCX/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v090",
+  "student_id": "426901",
+  "student_name": "山本結斗",
+  "url": "https://drive.google.com/file/d/1kEk_CpW22pWNfMXHLs8Ys-zBLPx5hCI4/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1kEk_CpW22pWNfMXHLs8Ys-zBLPx5hCI4/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v091",
+  "student_id": "426902",
+  "student_name": "與吾栄己",
+  "url": "https://youtu.be/YIGUKdwvjvQ",
+  "embed_url": "https://www.youtube.com/embed/YIGUKdwvjvQ",
+  "award": "夜景賞",
+  "url_status": "YouTube",
+  "active": 1
+ },
+ {
+  "id": "v092",
+  "student_id": "426903",
+  "student_name": "横井柚葉",
+  "url": "https://drive.google.com/file/d/1OFKnAJ_MaCuOs6k4ikjDtIeIMasMbTyB/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1OFKnAJ_MaCuOs6k4ikjDtIeIMasMbTyB/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v093",
+  "student_id": "426904",
+  "student_name": "ラサヤスナ",
+  "url": "https://drive.google.com/file/d/1Vat-hqHpLiRSpMehlwEM9ADWylUG_C6P/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1Vat-hqHpLiRSpMehlwEM9ADWylUG_C6P/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v094",
+  "student_id": "426905",
+  "student_name": "渡邉日向",
+  "url": "https://drive.google.com/file/d/1lLNpLVLPp_6f-cmegf0eePfY9KZdHJB2/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1lLNpLVLPp_6f-cmegf0eePfY9KZdHJB2/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v095",
+  "student_id": "426906",
+  "student_name": "DONGPUYUAN",
+  "url": "https://drive.google.com/file/d/1l_Be6JQqOpjg4pB8hSPyQ5T_VODb597W/view?usp=sharing",
+  "embed_url": "https://drive.google.com/file/d/1l_Be6JQqOpjg4pB8hSPyQ5T_VODb597W/preview",
+  "award": "",
+  "url_status": "Driveファイル",
+  "active": 1
+ },
+ {
+  "id": "v096",
+  "student_id": "426907",
+  "student_name": "YATILINNPHYU",
+  "url": "https://drive.google.com/file/d/1qAv_MVL1SLm-RcFv_mF7JJoYIYNm8JOE/view?usp=drive_link",
+  "embed_url": "https://drive.google.com/file/d/1qAv_MVL1SLm-RcFv_mF7JJoYIYNm8JOE/preview",
+  "award": "観光賞",
+  "url_status": "Driveファイル",
+  "active": 1
+ }
+]
