@@ -1,130 +1,54 @@
-# 動画評価実験アプリ
+# 動画評価実験アプリ（videoeval）
 
-大学院生5名で約100本の動画を評価し、IRT の推定にかけられる形で回答を集めるためのアプリ。
-外部パッケージなし。Node 22 以降と SQLite だけで動く。特定のホスティング事業者に依存しない。
+大学院生が約100本の動画を評価し、IRT の推定にかけられる形で回答を集めるためのアプリ。
+Cloudflare Workers + D1。AGEWEC 本体（`agewec-site` / `agewec_2026`）とは**別の Worker・別の D1**で、
+互いに干渉しない。Cloudflare Access は使わず、メールアドレス + パスワードでログインする。
 
 ```
 /          ログイン
-/setup/    初期セットアップ（最初の管理者を1人だけ作る。作成後は閉じる）
-/admin/    管理画面（評価者の追加、動画の取り込み、スコアのモニタリング、CSV出力）
+/setup/    初期化（1回だけ。スキーマ作成と初期データ投入）
+/admin/    管理画面（評価者、動画、スコアのモニタリング、CSV出力）
 /evaluate/ 評価画面（事前アンケート → Q1-Q8 × 全動画 → セッションごとの自由再生）
 ```
 
-## 起動
+## 立ち上げ（ダッシュボードだけで完結する）
 
-```bash
-git clone <このリポジトリ>
-cd videoeval
+ローカルの wrangler は不要。GitHub に push してあれば以下で動く。
 
-export SESSION_SECRET="$(head -c 32 /dev/urandom | base64)"   # 必ず設定する
-npm start                    # Node 22 / 23（--experimental-sqlite 付き）
-# Node 24 以降なら: node server.mjs
-```
+1. **D1 を作る** … Cloudflare ダッシュボード → Storage & Databases → D1 → Create。名前は `videoeval`。
+   表示された **Database ID** を `wrangler.jsonc` の `REPLACE_WITH_D1_ID` に貼って commit する。
+2. **Worker を作る** … Workers & Pages → Create → Import a repository → このリポジトリを選ぶ。
+   `wrangler.jsonc` を読んでビルドされる。以後は push で自動デプロイ。
+3. **シークレットを設定** … Worker の Settings → Variables and Secrets に2つ追加する。
 
-`http://localhost:8787` が上がる。環境変数は3つだけ。
+   | 名前 | 値 |
+   |---|---|
+   | `SESSION_SECRET` | Cookie の署名鍵。長いランダム文字列 |
+   | `BOOTSTRAP_TOKEN` | `/setup/` で使う合言葉。初期化が済んだら削除してよい |
 
-| 変数 | 既定 | 用途 |
-|---|---|---|
-| `PORT` | 8787 | 待ち受けポート |
-| `DB_PATH` | `./data/videoeval.db` | SQLite ファイル |
-| `SESSION_SECRET` | （なし） | Cookie の署名鍵。未設定だと警告が出る |
+4. **初期化** … `https://videoeval.<アカウント名>.workers.dev/setup/` を開き、`BOOTSTRAP_TOKEN` を入力。
+   テーブルが作られ、管理者1名・評価者8名・動画96本が入る。
+5. **ログイン** … `/` から。ログイン情報は `CREDENTIALS.md`。
 
-DB ファイルとスキーマは初回起動時に自動で作られる。`migrations/*.sql` は毎回流すが、
-すべて `IF NOT EXISTS` なので何度実行しても問題ない。
+URL は Cloudflare が払い出す `workers.dev` のもので足りる。独自ドメインは要らない。
 
-## 立ち上げ手順
+## 初期データ
 
-`seed/videoeval.db` に、管理者1名・評価者8名・動画96本を入れた初期データが同梱してある。
-初回起動時に `data/videoeval.db` へ自動コピーされるので、セットアップ作業は要らない。
+`worker/seed.js` に埋め込んである。`/setup/` を1回実行したときだけ投入される。
 
-1. サーバーを起動する
-2. `/` からログインする（ログイン情報は `CREDENTIALS.md`）
-
-`/setup/` は管理者が既に登録済みなので閉じている。
-
-初期データは以下のとおり。
-
-- 管理者: shunokuhara@icloud.com
-- 評価者: 8名（下浦・齋藤・日下・鈴木・長谷川・野瀬・蓑島・湖出）
-- 動画: 96本。うち URL の形式から視聴できないと判断した9本は出題対象外（`active = 0`）
+- 管理者1名（shunokuhara@icloud.com）
+- 評価者8名（下浦・齋藤・日下・鈴木・長谷川・野瀬・蓑島・湖出）
+- 動画96本。うち URL の形式から視聴できないと判断した9本は出題対象外（`active = 0`）
 
 実際に評価するのが5名なら、参加しない3名は管理画面で「停止」にする。
+再提出が届いた動画は管理画面のチェックボックスで出題対象に戻す。
 
-### 初期データを作り直す
-
-名簿（`seed/admins.json`, `seed/raters.json`）や動画（`seed/videos.json`）を編集したら、
-次のコマンドで `seed/videoeval.db` を作り直す。
-
-```bash
-node --experimental-sqlite scripts/init-db.mjs
-```
-
-- 既に登録済みのアカウントは氏名の更新だけ行い、パスワードは変えない
-- パスワードを作り直すときは `--reset` を付ける
-- 発行したパスワードは `CREDENTIALS.md` に書き出される（`.gitignore` 済み）
-
-稼働中の DB に直接反映したいときは `--out data/videoeval.db` を指定する。
-
-### パスワードについて
-
-自動生成の12文字（管理者は20文字）。`0 O 1 l I` のような紛らわしい文字は除いてあるので、
-口頭やメールで伝えても取り違えにくい。
-
-`seed/videoeval.db` にはパスワードのハッシュが入る。平文ではないが、**リポジトリは
-private にすること**。公開リポジトリに置くなら、初期データを外して `/setup/` から
-作る運用に戻すほうがよい。
-
-## どこで動かすか
-
-GitHub はコードを置く場所であって、サーバーではない。GitHub Pages は静的ファイルしか返せず、
-このアプリは回答を保存するので動かない。実際に走らせる場所が別に要る。
-
-**研究室のサーバー**が一番素直。systemd に登録すれば放っておける。
-
-```ini
-# /etc/systemd/system/videoeval.service
-[Unit]
-Description=videoeval
-After=network.target
-
-[Service]
-WorkingDirectory=/opt/videoeval
-Environment=PORT=8787
-Environment=DB_PATH=/var/lib/videoeval/videoeval.db
-Environment=SESSION_SECRET=<ランダムな文字列>
-ExecStart=/usr/bin/node --experimental-sqlite server.mjs
-Restart=always
-User=videoeval
-
-[Install]
-WantedBy=multi-user.target
-```
-
-学外からアクセスさせるなら nginx などを前段に置いて HTTPS を終端する。学内だけで足りるなら
-そのままでよい。Cookie の `Secure` 属性は `X-Forwarded-Proto: https` を見て自動で切り替わる。
-
-**GitHub に push したら自動で反映されてほしい場合**は、Render / Railway / Fly.io などが
-GitHub 連携に対応している。同梱の `Dockerfile` がそのまま使える。SQLite ファイルを置く
-永続ボリューム（`/data`）が要るので、使う枠でボリュームが確保できるかは事前に確認すること。
-
-```bash
-docker build -t videoeval .
-docker run -p 8787:8787 -v $PWD/data:/data -e SESSION_SECRET=... videoeval
-```
-
-## バックアップ
-
-SQLite ファイル1つなのでコピーで済む。
-
-```bash
-sqlite3 data/videoeval.db ".backup backup-$(date +%F).db"
-```
-
-実験期間中は日次で取っておくこと。`data/` は `.gitignore` に入れてある。
+名簿や動画を変えるときは `seed/*.json` を編集し、`worker/seed.js` を作り直す。
+初期化済みの D1 には反映されないので、その場合は管理画面から追加・修正する。
 
 ## 評価項目
 
-`server.mjs` 冒頭の `ITEMS` が唯一の出典。人間用の画面もここから生成される。
+`worker/index.js` 冒頭の `ITEMS` が唯一の出典。評価画面はここから生成される。
 LLM 評価器に同じ項目を投げるときも、この定義から文言を起こすこと。1文字でもずれると
 人間と AI を同一尺度に載せる前提が崩れる。
 
@@ -138,8 +62,6 @@ LLM 評価器に同じ項目を投げるときも、この定義から文言を�
 | Q6 | 地域固有性 | 知覚された独自性 | 0-3 |
 | Q7 | 訴求力 | 訪問意欲 | 0-3 |
 | Q8 | 訴求力 | 共有意向 | 0-3 |
-
-項目を足すときは `ITEMS` に要素を追加し、`migrations/0002_*.sql` で `responses` に列を足す。
 
 ## 設計上の要点
 
@@ -168,8 +90,25 @@ LLM 評価器に同じ項目を投げるときも、この定義から文言を�
 
 CSV の1行が「評価者 × 動画」の1観測。IRT の推定にそのまま渡せる。
 
-## 動画データ
+## バックアップ
 
-`seed/videos.json` は提出一覧（96名分）から起こしたもの。URL の形式から視聴できないと
-判断した9本は `active: 0` で入るので出題されない。再提出が届いたら管理画面のチェックボックスで
-有効にする。埋め込み再生できるのは79本で、残りは別タブで開くリンク表示になる。
+```bash
+wrangler d1 export videoeval --remote --output videoeval-$(date +%F).sql
+```
+
+実験期間中は定期的に取っておくこと。
+
+## テスト
+
+D1 と静的アセットを模したハーネスで、Worker のロジックを手元で回せる。
+
+```bash
+node --experimental-sqlite test/harness.mjs
+```
+
+初期化、ログイン、権限、出題順、範囲チェック、モニタリング集計、CSV まで通しで検証する。
+
+## リポジトリの公開範囲
+
+`seed/videos.json` と `worker/seed.js` に学生の学籍番号と氏名、パスワードのハッシュが入る。
+**リポジトリは private にすること。** `CREDENTIALS.md`（平文のパスワード）は `.gitignore` 済み。

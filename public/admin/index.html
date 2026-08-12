@@ -1,0 +1,257 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>管理画面 — 動画評価実験</title><link rel="stylesheet" href="/styles.css"></head><body>
+<header>
+  <h1>動画評価実験 / 管理画面</h1><span class="sp"></span>
+  <span id="who" class="mut"></span>
+  <button class="sec" id="logout">ログアウト</button>
+</header>
+<main>
+  <div id="msg" class="msg"></div>
+
+  <div class="card">
+    <h2>評価者</h2>
+    <table id="raters"><thead><tr>
+      <th>メールアドレス</th><th>氏名</th><th>権限</th><th>状態</th><th>進捗</th><th></th>
+    </tr></thead><tbody></tbody></table>
+
+    <h3>追加 / 更新</h3>
+    <p class="mut">既存のメールアドレスを入れると更新になります。パスワード欄が空なら現在のパスワードを保ちます。8文字以上。</p>
+    <div class="row">
+      <div><label>メールアドレス</label><input id="r_email" type="email"></div>
+      <div><label>氏名</label><input id="r_name"></div>
+      <div class="narrow"><label>権限</label><select id="r_role"><option value="rater">評価者</option><option value="admin">管理者</option></select></div>
+      <div><label>パスワード</label><input id="r_pw" type="text" placeholder="新規は必須"></div>
+      <div class="narrow"><label>&nbsp;</label><button id="r_save">保存</button></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>動画</h2>
+    <p class="mut">統合済みの一覧（JSON）を貼り付けて取り込みます。<code>id</code> を省略すると v001 から連番になります。埋め込みURLは Google Drive / YouTube / Vimeo を自動変換します。</p>
+    <label>JSON（配列。各要素は student_id, student_name, url, award, url_status, active）</label>
+    <textarea id="imp" rows="7" placeholder='[{"student_id":"426802","student_name":"…","url":"https://drive.google.com/file/d/…/view"}]'></textarea>
+    <div class="row" style="margin-top:10px">
+      <div class="narrow"><label><input type="checkbox" id="imp_replace" style="width:auto"> 既存を全削除して入替</label></div>
+      <div class="narrow"><button id="imp_go">取り込み</button></div>
+      <div class="sp"></div>
+    </div>
+    <h3>登録済み <span id="vcount" class="mut"></span></h3>
+    <div style="max-height:340px;overflow:auto">
+      <table id="videos"><thead><tr>
+        <th>ID</th><th>学籍番号</th><th>氏名</th><th>URL判定</th><th>回答数</th><th>出題</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>スコア（モニタリング用）</h2>
+    <p class="mut">進行状況を見るための集計です。層ごとに満点が違うので素点と100点換算の両方を出しています。研究上の効用値はCSVを落として別途推定してください。重複提示分は二重に数えないよう除いてあります。</p>
+    <div id="mon_head" class="mut" style="margin:8px 0"></div>
+
+    <h3>動画ごと</h3>
+    <div class="row" style="margin-bottom:8px">
+      <div class="narrow"><label>並び順</label><select id="mon_sort">
+        <option value="total">合計点が高い順</option>
+        <option value="total_asc">合計点が低い順</option>
+        <option value="l1">層1（適格性）が低い順</option>
+        <option value="l2">層2（地域固有性）が低い順</option>
+        <option value="l3">層3（訴求力）が低い順</option>
+        <option value="sd">評価のばらつきが大きい順</option>
+        <option value="id">ID順</option>
+      </select></div>
+      <div class="sp"></div>
+    </div>
+    <div style="max-height:420px;overflow:auto">
+      <table id="mon_videos"><thead><tr>
+        <th>ID</th><th>学籍番号</th><th>氏名</th><th>回答数</th>
+        <th>層1</th><th>層2</th><th>層3</th><th>合計</th><th>100点換算</th><th>SD</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+
+    <h3>評価者ごと（厳しさの目安）</h3>
+    <table id="mon_raters"><thead><tr>
+      <th>評価者</th><th>回答数</th><th>層1</th><th>層2</th><th>層3</th><th>合計</th><th>SD</th>
+      <th>回答時間の中央値</th><th>5秒未満の割合</th>
+    </tr></thead><tbody></tbody></table>
+
+    <h3>重複提示の一致（評価者内一貫性）</h3>
+    <table id="mon_consist"><thead><tr>
+      <th>評価者</th><th>対象数</th><th>項目一致率</th><th>全項目一致の割合</th><th>合計点の平均絶対差</th>
+    </tr></thead><tbody></tbody></table>
+
+    <h3>選択肢の使用率</h3>
+    <p class="mut">使用率が5%未満の選択肢は機能していません。文言を見直す対象です。</p>
+    <table id="mon_usage"><thead><tr>
+      <th>項目</th><th>層</th><th>0</th><th>1</th><th>2</th><th>3</th>
+    </tr></thead><tbody></tbody></table>
+  </div>
+
+  <div class="card">
+    <h2>設定と出力</h2>
+    <div class="row">
+      <div class="narrow"><label>1セッションの本数</label><input id="s_block" type="number" min="5" max="100"></div>
+      <div class="narrow"><label>重複提示の本数</label><input id="s_repeat" type="number" min="0" max="30"></div>
+      <div class="narrow"><label>回答受付</label><select id="s_open"><option value="1">受付中</option><option value="0">停止</option></select></div>
+      <div class="narrow"><label>&nbsp;</label><button id="s_save">設定を保存</button></div>
+    </div>
+    <p class="mut" style="margin-top:8px">セッション本数と重複本数の変更は、以後に出題リストを作り直した評価者にだけ反映されます。</p>
+    <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+      <a href="/api/admin/export.csv"><button class="sec">回答CSV</button></a>
+      <a href="/api/admin/surveys.csv"><button class="sec">事前アンケート・自由再生CSV</button></a>
+    </div>
+  </div>
+</main>
+<script>
+const $=(s)=>document.querySelector(s);
+const show=(t,k)=>{const m=$('#msg');m.textContent=t;m.className='msg '+k;setTimeout(()=>{m.className='msg'},4000);};
+const esc=(s)=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function api(p,o){const r=await fetch(p,o);if(r.status===401){location.href='/';return null;}
+  const d=await r.json().catch(()=>({}));if(!r.ok){show('エラー: '+(d.error||r.status),'err');return null;}return d;}
+
+async function loadMe(){const d=await api('/api/me');if(d)$('#who').textContent=d.name||d.email;}
+
+async function loadRaters(){
+  const d=await api('/api/admin/raters'); if(!d)return;
+  const tb=$('#raters tbody'); tb.innerHTML='';
+  for(const r of d.raters){
+    const pct=r.n_tasks?Math.round(100*r.n_done/r.n_tasks):0;
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(r.email)}</td><td>${esc(r.name)}</td>
+      <td>${r.role==='admin'?'管理者':'評価者'}</td><td>${r.active?'有効':'停止'}</td>
+      <td><div style="display:flex;gap:8px;align-items:center"><div class="bar" style="flex:1"><i style="width:${pct}%"></i></div>
+      <span class="mut">${r.n_done}/${r.n_tasks}</span></div></td>
+      <td><button class="sec" data-mail="${esc(r.email)}">出題リスト再生成</button></td>`;
+    tb.appendChild(tr);
+  }
+  tb.querySelectorAll('button[data-mail]').forEach(b=>b.addEventListener('click',()=>rebuild(b.dataset.mail)));
+}
+
+async function rebuild(email){
+  let d=await fetch('/api/admin/rebuild',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email})});
+  let j=await d.json();
+  if(d.status===409){
+    if(!confirm(`この評価者には既に ${j.n} 件の回答があります。出題リストを作り直すと回答と対応が取れなくなります。続けますか。`))return;
+    d=await fetch('/api/admin/rebuild',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email,force:true})});
+    j=await d.json();
+  }
+  if(d.ok){show(`出題リストを作成しました（${j.n}件）`,'ok');loadRaters();}
+  else show('エラー: '+(j.error||d.status),'err');
+}
+
+$('#r_save').addEventListener('click',async()=>{
+  const body={email:$('#r_email').value,name:$('#r_name').value,role:$('#r_role').value};
+  if($('#r_pw').value)body.password=$('#r_pw').value;
+  const d=await api('/api/admin/rater',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+  if(d){show('保存しました','ok');$('#r_pw').value='';loadRaters();}
+});
+
+async function loadVideos(){
+  const [v,p]=await Promise.all([api('/api/admin/videos'),api('/api/admin/progress')]);
+  if(!v)return;
+  const cnt={}; (p?p.videos:[]).forEach(x=>cnt[x.id]=x.n);
+  $('#vcount').textContent=`（${v.videos.length}本 / 出題対象 ${v.videos.filter(x=>x.active).length}本）`;
+  const tb=$('#videos tbody'); tb.innerHTML='';
+  for(const x of v.videos){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(x.id)}</td><td>${esc(x.student_id)}</td><td>${esc(x.student_name)}</td>
+      <td>${esc(x.url_status)}</td><td>${cnt[x.id]||0}</td>
+      <td><input type="checkbox" style="width:auto" data-vid="${esc(x.id)}" ${x.active?'checked':''}></td>`;
+    tb.appendChild(tr);
+  }
+  tb.querySelectorAll('input[data-vid]').forEach(c=>c.addEventListener('change',async()=>{
+    await api('/api/admin/video',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({id:c.dataset.vid,active:c.checked})});
+  }));
+}
+
+$('#imp_go').addEventListener('click',async()=>{
+  let videos;
+  try{videos=JSON.parse($('#imp').value);}catch(e){show('JSONが読めません: '+e.message,'err');return;}
+  if(!Array.isArray(videos)){show('配列を貼り付けてください','err');return;}
+  const d=await api('/api/admin/import',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({videos,replace:$('#imp_replace').checked})});
+  if(d){show(`${d.n}本を取り込みました`,'ok');$('#imp').value='';loadVideos();}
+});
+
+async function loadSettings(){
+  const d=await api('/api/admin/settings'); if(!d)return;
+  $('#s_block').value=d.settings.block_size||25;
+  $('#s_repeat').value=d.settings.repeat_count||10;
+  $('#s_open').value=d.settings.open||'1';
+}
+$('#s_save').addEventListener('click',async()=>{
+  const d=await api('/api/admin/settings',{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({block_size:$('#s_block').value,repeat_count:$('#s_repeat').value,open:$('#s_open').value})});
+  if(d)show('設定を保存しました','ok');
+});
+
+let MON=null;
+const nz=(v)=>v==null?'<span class="mut">—</span>':v;
+function renderMon(){
+  if(!MON)return;
+  $('#mon_head').textContent=
+    `回答 ${MON.n_responses}件（重複提示 ${MON.n_repeat}件は集計から除外） / 満点 層1=${MON.max.l1} 層2=${MON.max.l2} 層3=${MON.max.l3} 合計=${MON.max.total}`;
+
+  const k=$('#mon_sort').value;
+  const v=MON.videos.slice().filter(x=>x.n>0);
+  const cmpDesc=(f)=>(a,b)=>(b[f]??-1)-(a[f]??-1);
+  const cmpAsc=(f)=>(a,b)=>(a[f]??99)-(b[f]??99);
+  if(k==='total')v.sort(cmpDesc('total'));
+  else if(k==='total_asc')v.sort(cmpAsc('total'));
+  else if(k==='l1')v.sort(cmpAsc('l1'));
+  else if(k==='l2')v.sort(cmpAsc('l2'));
+  else if(k==='l3')v.sort(cmpAsc('l3'));
+  else if(k==='sd')v.sort(cmpDesc('total_sd'));
+  else v.sort((a,b)=>a.id<b.id?-1:1);
+
+  const tb=$('#mon_videos tbody');tb.innerHTML='';
+  for(const x of v){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(x.id)}</td><td>${esc(x.student_id)}</td><td>${esc(x.student_name)}</td>
+      <td>${x.n}</td><td>${nz(x.l1)}</td><td>${nz(x.l2)}</td><td>${nz(x.l3)}</td>
+      <td><b>${nz(x.total)}</b></td><td>${x.total_pct==null?'—':x.total_pct}</td><td>${nz(x.total_sd)}</td>`;
+    tb.appendChild(tr);
+  }
+  const un=MON.videos.filter(x=>!x.n).length;
+  if(un){const tr=document.createElement('tr');
+    tr.innerHTML=`<td colspan="10" class="mut">未回答の動画 ${un}本は表示していません</td>`;tb.appendChild(tr);}
+
+  const rb=$('#mon_raters tbody');rb.innerHTML='';
+  for(const x of MON.raters){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(x.email)}</td><td>${x.n}</td><td>${nz(x.l1)}</td><td>${nz(x.l2)}</td>
+      <td>${nz(x.l3)}</td><td><b>${nz(x.total)}</b></td><td>${nz(x.total_sd)}</td>
+      <td>${x.median_ms==null?'—':(x.median_ms/1000).toFixed(1)+'秒'}</td>
+      <td${x.fast_rate>0.2?' style="color:#d9a441"':''}>${x.fast_rate==null?'—':Math.round(x.fast_rate*100)+'%'}</td>`;
+    rb.appendChild(tr);
+  }
+
+  const cb=$('#mon_consist tbody');cb.innerHTML='';
+  for(const x of MON.consistency){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(x.email)}</td><td>${x.n}</td>
+      <td${x.item_match<0.6?' style="color:#d9a441"':''}>${Math.round(x.item_match*100)}%</td>
+      <td>${Math.round(x.exact_rate*100)}%</td><td>${x.mean_abs_diff}</td>`;
+    cb.appendChild(tr);
+  }
+  if(!MON.consistency.length)cb.innerHTML='<tr><td colspan="5" class="mut">重複提示分の回答がまだありません</td></tr>';
+
+  const ub=$('#mon_usage tbody');ub.innerHTML='';
+  for(const x of MON.usage){
+    const cells=[0,1,2,3].map(i=>{
+      if(x.rates[i]==null)return '<td class="mut">—</td>';
+      const p=Math.round(x.rates[i]*100);
+      return `<td${(p<5)?' style="color:#d9a441"':''}>${p}% <span class="mut">(${x.counts[i]})</span></td>`;
+    }).join('');
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td>${esc(x.id.toUpperCase())} ${esc(x.name)}</td><td>${x.layer}</td>${cells}`;
+    ub.appendChild(tr);
+  }
+}
+async function loadMon(){MON=await api('/api/admin/progress');renderMon();}
+$('#mon_sort').addEventListener('change',renderMon);
+
+$('#logout').addEventListener('click',async()=>{await fetch('/api/logout',{method:'POST'});location.href='/';});
+loadMe();loadRaters();loadVideos();loadSettings();loadMon();
+</script></body></html>
