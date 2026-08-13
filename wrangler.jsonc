@@ -10,7 +10,7 @@
 
   // AGEWEC 本体（agewec-site / agewec_2026）とは別の Worker・別の D1。
   // ダッシュボードで D1 を作り、その database_id をここに貼る。
-  "d1_databases": [{ "binding": "DB", "database_name": "videoeval", "database_id": "fb5337cc-a4b3-49e4-a23d-f7d8f3809a36" }
+  "d1_databases": [{ "binding": "DB", "database_name": "awec2026", "database_id": "fb5337cc-a4b3-49e4-a23d-f7d8f3809a36" }
   ]
 
   // シークレットはダッシュボードで設定する:
