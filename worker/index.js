@@ -473,6 +473,13 @@ async function handleApi(pathname, request, env, db) {
            LEFT JOIN videos v ON v.id=r.video_id
           ORDER BY r.rater_email,r.position`).all()).results || [], "responses.csv");
 
+  if (pathname === "/api/admin/videos.csv" && m === "GET")
+    return csvResponse(
+      ["id", "student_id", "student_name", "url", "embed_url", "award", "url_status", "active"],
+      (await db.prepare(
+        "SELECT id,student_id,student_name,url,embed_url,award,url_status,active FROM videos ORDER BY id").all()).results || [],
+      "videos.csv");
+
   if (pathname === "/api/admin/surveys.csv" && m === "GET")
     return csvResponse(["rater_email", "kind", "block", "payload", "updated_at"],
       (await db.prepare("SELECT * FROM surveys ORDER BY rater_email,kind,block").all()).results || [], "surveys.csv");
