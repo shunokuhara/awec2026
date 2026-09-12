@@ -182,6 +182,10 @@ const lines = String(csv.data).trim().split("\n");
 ok(lines.length === 181, "CSV は 180行 + ヘッダ", `${lines.length}行`);
 ok(lines[0].includes("rater_email") && lines[0].includes("is_repeat") && lines[0].includes("q8"), "CSV のヘッダが正しい");
 ok((await call("GET", "/api/admin/surveys.csv", { as: admin })).status === 200, "アンケートCSVが出る");
+const vcsv = await call("GET", "/api/admin/videos.csv", { as: admin });
+const vlines = String(vcsv.data).trim().split("\n");
+ok(vcsv.status === 200 && vlines[0].replace(/^\uFEFF/, "") === "id,student_id,student_name,url,embed_url,award,url_status,active", "動画URL一覧CSVのヘッダ");
+ok(vlines.length === 1 + 96, "動画URL一覧CSVが全動画分ある: " + (vlines.length - 1));
 for (const p of ["/", "/setup/", "/admin/", "/evaluate/", "/styles.css"]) {
   const r = await worker.fetch(new Request(BASE + p), env);
   ok(r.status === 200, `静的 ${p}`);
