@@ -37,3 +37,6 @@ th{color:var(--mut);font-weight:600;white-space:nowrap}
 .qh{font-size:14px;font-weight:600;margin-bottom:2px}
 .badge{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;background:#2a2f3a;color:var(--mut);margin-left:8px}
 .login{max-width:360px;margin:12vh auto}
+
+td.url{max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+td.url a{color:inherit}
