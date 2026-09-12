@@ -36,10 +36,14 @@
       <div class="narrow"><button id="imp_go">取り込み</button></div>
       <div class="sp"></div>
     </div>
-    <h3>登録済み <span id="vcount" class="mut"></span></h3>
+    <div class="row" style="align-items:center;margin-top:14px">
+      <h3 style="margin:0">登録済み <span id="vcount" class="mut"></span></h3>
+      <div class="sp"></div>
+      <div class="narrow"><a href="/api/admin/videos.csv"><button class="sec">動画URL一覧CSV</button></a></div>
+    </div>
     <div style="max-height:340px;overflow:auto">
       <table id="videos"><thead><tr>
-        <th>ID</th><th>学籍番号</th><th>氏名</th><th>URL判定</th><th>回答数</th><th>出題</th>
+        <th>ID</th><th>学籍番号</th><th>氏名</th><th>URL</th><th>URL判定</th><th>回答数</th><th>出題</th>
       </tr></thead><tbody></tbody></table>
     </div>
   </div>
@@ -99,6 +103,7 @@
     <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
       <a href="/api/admin/export.csv"><button class="sec">回答CSV</button></a>
       <a href="/api/admin/surveys.csv"><button class="sec">事前アンケート・自由再生CSV</button></a>
+      <a href="/api/admin/videos.csv"><button class="sec">動画URL一覧CSV</button></a>
     </div>
   </div>
 </main>
@@ -155,6 +160,7 @@ async function loadVideos(){
   for(const x of v.videos){
     const tr=document.createElement('tr');
     tr.innerHTML=`<td>${esc(x.id)}</td><td>${esc(x.student_id)}</td><td>${esc(x.student_name)}</td>
+      <td class="url"><a href="${esc(x.url)}" target="_blank" rel="noopener" title="${esc(x.url)}">${esc(x.url)}</a></td>
       <td>${esc(x.url_status)}</td><td>${cnt[x.id]||0}</td>
       <td><input type="checkbox" style="width:auto" data-vid="${esc(x.id)}" ${x.active?'checked':''}></td>`;
     tb.appendChild(tr);
